@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#B0B0B0">
+
+    <ListView
+        android:id="@+id/listView_create"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="450dp" 
+        android:drawSelectorOnTop="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:divider="@null"
+		android:dividerHeight="5dp"
+        />
+
+    <Button
+        android:id="@+id/button_saveweek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_setschedule"
+        android:layout_alignBottom="@+id/button_setschedule"
+        android:layout_marginLeft="47dp"
+        android:layout_toRightOf="@+id/button_setschedule"
+        android:text="Save week" 
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/button_setschedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listView_create"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="Set schedule" 
+        android:background="@drawable/button_grey"/>
+
+</RelativeLayout>

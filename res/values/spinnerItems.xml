@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bodyparts_array">
+        <item>Legs</item>
+        <item>Arms</item>
+        <item>Back</item>
+        <item>Chest</item>
+        <item>Legs/Back</item>
+        <item>Legs/Chest</item>
+        <item>Legs/Arms</item>
+        <item>Arms/Back</item>
+        <item>Arms/Chest</item>
+        <item>Chest/Back</item>
+
+    </string-array>
+</resources>

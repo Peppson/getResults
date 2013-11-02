@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/android_layout_shadow">
+
+    <TextView
+        android:id="@+id/textView_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monday"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/TextView_exercise_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_day"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    	<Button
+        android:id="@+id/button_add_exercise"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:text="Add exercises" 
+        android:focusable="false"
+        android:visibility="gone"/>
+		
+    	<ImageView
+        android:id="@+id/imageView_arrow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/listarrow2" />
+
+    	<TextView
+    	    android:id="@+id/textView_counter_number"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignBottom="@+id/TextView_exercise_counter"
+    	    android:layout_centerHorizontal="true"
+    	    android:text="Rest"
+    	    android:textSize="35dp"
+    	    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

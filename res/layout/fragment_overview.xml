@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#B0B0B0">
+    
+    <RelativeLayout
+        android:id="@+id/mygraph3"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/android_layout_shadow"
+        android:orientation="vertical" 
+        android:paddingLeft="10dp">
+
+        <Button
+            android:id="@+id/button_startGraphview"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/button_grey"
+            android:text="Plot" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/exercise_spinner_plot"
+            android:layout_marginTop="10dp"
+            android:text="How many weeks  "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="10dp"
+            android:text="Goal weight"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Exercise to plot"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/editText1"
+            android:layout_below="@+id/editText1"
+            android:ems="10"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_marginLeft="50dp"
+            android:ems="10"
+            android:inputType="number" >
+
+            <requestFocus />
+        </EditText>
+
+        <Spinner
+            android:id="@+id/exercise_spinner_plot"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button_startGraphview"
+            android:layout_alignParentTop="true" 
+            android:layout_marginLeft="90dp"/>
+
+        <TextView
+            android:id="@+id/textView_dynamic_exercise"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/TextView01"
+            android:layout_toRightOf="@+id/TextView01"
+            android:layout_marginLeft="3dp"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </RelativeLayout>
+    
+     <RelativeLayout
+        android:id="@+id/mygraph4"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/android_layout_shadow"
+        android:orientation="vertical" 
+        android:layout_below="@+id/mygraph3">
+
+         <Spinner
+            android:id="@+id/exercise_spinner_plot2"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView4"
+            android:layout_alignParentTop="true" 
+            android:layout_marginLeft="10dp"/>
+         
+         <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Show instructions for"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+         
+         <Button
+            android:id="@+id/button_showInfo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:background="@drawable/button_grey"
+            android:text="Show" />
+        
+         </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="exercise_array">
+        <item>Bicep</item>
+        <item>Deadlift</item>
+        <item>Squats</item>
+        <item>Benchpress</item>
+        <item>Calves</item>
+        <item>Lunges</item>
+        <item>Abs</item>
+        <item>Tricep</item>
+        <item>Rows</item>
+        <item>Pullups</item>
+
+    </string-array>
+</resources>

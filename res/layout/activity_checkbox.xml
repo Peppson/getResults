@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="500dp"
+    android:orientation="vertical" 
+    android:background="#FFFFFF">
+ 
+    <TextView
+  android:id="@+id/TextView_weekday" 
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content" 
+  android:padding="10dp"
+  android:text="Bodypart(s)" 
+  android:textSize="20sp" 
+  android:textColor="#000000"/>
+ 
+    <Button
+        android:id="@+id/findSelected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save day" 
+        android:layout_below="@+id/listView1"/>
+ 
+ <ListView android:id="@+id/listView1" 
+     android:layout_width="fill_parent"
+     android:layout_height="400dp" 
+     android:layout_below="@+id/TextView_weekday"/>
+
+ <Spinner
+     android:id="@+id/exercise_spinner"
+     android:layout_width="150dp"
+     android:layout_height="wrap_content"
+     android:layout_alignParentRight="true"
+     android:layout_alignParentTop="true"/>
+ 
+</RelativeLayout>

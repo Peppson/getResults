@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/android_layout_shadow" >
+
+    <TextView
+        android:id="@+id/textView_set"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/textView_name"
+        android:ems="10"
+        android:text="SET"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:text="NAME!"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_rep"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/textView_set"
+        android:ems="10"
+        android:text="REP"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_weight"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/textView_rep"
+        android:ems="10"
+        android:text="WGT"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_name"
+        android:layout_alignBottom="@+id/textView_name"
+        android:layout_alignParentLeft="true"
+        android:text="TextView"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_toRightOf="@+id/textView_weight"
+        android:background="@android:color/darker_gray" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="2dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="4dp"
+        android:layout_toLeftOf="@+id/textView_weight"
+        android:background="@android:color/darker_gray" />
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="4dp"
+        android:layout_toLeftOf="@+id/textView_rep"
+        android:background="@android:color/darker_gray" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="2dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="4dp"
+        android:layout_toLeftOf="@+id/textView_set"
+        android:background="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/imageView_arrow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/listarrowsmall" />
+
+    <TextView
+        android:id="@+id/textView_listdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/view2"
+        android:layout_toLeftOf="@+id/view2"
+        android:text="TextView" 
+        android:visibility="gone"/>
+
+</RelativeLayout>

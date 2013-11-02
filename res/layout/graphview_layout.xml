@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mygraph"
+    android:layout_width="320dp"
+    android:layout_height="400dp"
+    android:orientation="vertical" 
+    android:background="#B0B0B0">
+
+<LinearLayout
+        android:id="@+id/mygraph4"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical" 
+        android:layout_margin="10dp"
+        android:background="@drawable/android_layout_shadow">
+    </LinearLayout>
+
+	
+
+<Button
+    android:id="@+id/button_plot_graph"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/mygraph4"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="107dp"
+    android:text="Close" />
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/mygraph4"
+    android:text="Your progress in Squats: +40%"
+    android:textColor="#000000" />
+    
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="450dp"
+    android:orientation="vertical" 
+    android:background="#B0B0B0"
+    android:padding="10dp">
+     <TextView
+        android:id="@+id/textView_step2"
+        android:layout_marginTop="5dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/textView_step1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. Keeping your back straight, lower your body down and back as if you are sitting down into a chair, until your thighs are parallel to the ground (or as close to parallel as possible).  Make sure your knees do not pass over your toes, and keeps your abs tightly activated to ensure a straight spine." />
+      <TextView
+        android:id="@+id/textView_step3"
+        android:layout_marginTop="5dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/textView_step2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. Rise back up slowly and repeat!" />
+
+      <TextView
+          android:id="@+id/textView_step1"
+          android:layout_width="wrap_content"
+          android:textColor="#000000"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/textView_step2"
+          android:layout_alignParentTop="true"
+          android:layout_marginTop="26dp"
+          android:text="1. Stand with your feet slightly wider than hip-width apart, back straight, shoulders down, toes pointed slightly out." />
+
+      <TextView
+          android:id="@+id/textView1"
+          android:textColor="#000000"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentTop="true"
+          android:text="Instructions"
+          android:textAppearance="?android:attr/textAppearanceLarge" />
+
+      <TextView
+          android:id="@+id/textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@+id/textView_step3"
+          android:layout_marginTop="28dp"
+          android:text="To prevent injury"
+          android:textAppearance="?android:attr/textAppearanceLarge" 
+          android:textColor="#000000"/>
+
+      <TextView
+          android:id="@+id/textView3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/textView2"
+          android:layout_below="@+id/textView2"
+          android:text="Lift the wheight you feel comfortable lifting. Try to go all the way down inorder to save your knees. Always keep a straight back, especially your lower back."
+          android:layout_marginTop="5dp" 
+          android:textColor="#000000"/>
+
+      <Button
+          android:id="@+id/button_closeInfo"
+          style="?android:attr/buttonStyleSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginBottom="14dp"
+          android:text="Close" 
+          android:background="@drawable/button_grey"/>
+
+</RelativeLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#B0B0B0">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView_set_default_values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exercise default values"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView_set_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/editText_rep_settings"
+            android:layout_alignBottom="@+id/editText_rep_settings"
+            android:layout_toRightOf="@+id/editText_set_settings"
+            android:text="Set"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editText_set_settings"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView_set_settings"
+            android:layout_alignBottom="@+id/textView_set_settings"
+            android:layout_alignParentLeft="true"
+            android:ems="10"
+            android:text="3" />
+
+        <TextView
+            android:id="@+id/textView_rep_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/editText_rep_settings"
+            android:layout_alignBottom="@+id/editText_rep_settings"
+            android:layout_centerHorizontal="true"
+            android:text="Rep"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="65dp"
+            android:layout_toRightOf="@+id/textView_weight"
+            android:background="@android:color/darker_gray" />
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/textView_rep_settings"
+            android:layout_below="@+id/view1"
+            android:text="Keep screen awake" />
+
+        <View
+            android:id="@+id/View01"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/checkBox1"
+            android:background="@android:color/darker_gray" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/View01"
+            android:layout_centerHorizontal="true"
+            android:text="Vibration" />
+
+        <View
+            android:id="@+id/View02"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/checkBox3"
+            android:background="@android:color/darker_gray" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/View02"
+            android:layout_alignLeft="@+id/checkBox1"
+            android:text="Sound" />
+
+        <EditText
+            android:id="@+id/editText_rep_settings"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_set_default_values"
+            android:layout_toLeftOf="@+id/textView_rep_settings"
+            android:ems="10"
+            android:text="8" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
