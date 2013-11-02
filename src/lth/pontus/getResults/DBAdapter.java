@@ -1,7 +1,7 @@
 // ------------------------------------ DBADapter.java ---------------------------------------------
 
 // TODO: Change the package to match your project.
-package com.example.getresults2;
+package lth.pontus.getResults;
 
 import java.util.Date;
 

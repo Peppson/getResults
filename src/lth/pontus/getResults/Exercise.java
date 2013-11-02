@@ -1,4 +1,4 @@
-package com.example.getresults2;
+package lth.pontus.getResults;
 
 public class Exercise implements Cloneable {
 	

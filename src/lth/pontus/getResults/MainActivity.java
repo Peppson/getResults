@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.getresults2;
+package lth.pontus.getResults;
 
 import com.example.getresults2.R;
 import java.util.ArrayList;

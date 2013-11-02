@@ -1,4 +1,4 @@
-package com.example.getresults2;
+package lth.pontus.getResults;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
