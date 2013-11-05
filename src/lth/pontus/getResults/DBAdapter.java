@@ -46,6 +46,7 @@ public class DBAdapter {
 
 	
 	public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_NAME, KEY_SETS, KEY_REP, KEY_WEIGHT, KEY_DATES};
+	public static final String[] ALL_ROWIDS = new String[] {KEY_ROWID};
 	public static final String[] WEIGHT_KEYS = new String[] {KEY_WEIGHT};
 	
 	
@@ -232,6 +233,36 @@ public class DBAdapter {
 		// Insert it into the database.
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
 	}
+	
+	public Cursor getExerciseAboveId(long Id, String exerciseName){
+		String where = KEY_ROWID + ">" + Id + " AND " + KEY_NAME + "='" +  exerciseName + "'";
+		Cursor c = db.query(true, DATABASE_TABLE, ALL_ROWIDS, 
+				where, null, null, null, null, null);
+		if (c != null) {
+			c.moveToFirst();
+		}
+		return c;
+	}
+	
+	public boolean updateRowNoById(long rowId, int sets, int rep, int weight) {
+		String where = KEY_ROWID + "=" + rowId;
+
+		/*
+		 * CHANGE 4:
+		 */
+		// TODO: Update data in the row with new fields.
+		// TODO: Also change the function's arguments to be what you need!
+		// Create row's data:
+		ContentValues newValues = new ContentValues();
+		newValues.put(KEY_SETS, sets);
+		newValues.put(KEY_REP, rep);
+		newValues.put(KEY_WEIGHT, weight);
+		
+		// Insert it into the database.
+		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
+	}
+	
+	
 	
 	
 	

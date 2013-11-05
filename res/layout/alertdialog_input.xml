@@ -32,40 +32,31 @@
         android:text="Set"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-     <EditText
-         android:id="@+id/EditTexDialog_rep"
-         android:layout_width="60dp"
+     <NumberPicker
+         android:id="@+id/numberPicker_Set"
+         android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/textViewDialog_rep"
-         android:layout_below="@+id/textViewDialog_rep"
-         android:ems="10"
-         android:text="8" 
-         android:inputType="phone"
-    	 android:digits="1234567890."/>
-
-     <EditText
-         android:id="@+id/EditTexDialog_set"
-         android:layout_width="60dp"
+         android:layout_alignParentLeft="true"
+         android:layout_marginLeft="5dp" 
+         android:layout_marginTop="25dp"/>
+     
+     <NumberPicker
+         android:id="@+id/numberPicker_Rep"
+         android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/textViewDialog_set"
-         android:layout_below="@+id/textViewDialog_set"
-         android:ems="10"
-         android:text="3" 
-         android:inputType="phone"
-    	 android:digits="1234567890.">
+         android:layout_marginLeft="36dp" 
+         android:layout_marginTop="25dp"
+         android:layout_toRightOf="@+id/numberPicker_Set"
+         />
 
-         <requestFocus />
-     </EditText>
-
-     <EditText
-         android:id="@+id/EditTextDialog_weight"
-         android:layout_width="60dp"
+     <NumberPicker
+         android:id="@+id/numberPicker_weight"
+         android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/textViewDialog_Weight"
-         android:layout_below="@+id/textViewDialog_Weight"
-         android:ems="10"
-         android:text="100" 
-         android:inputType="phone"
-    	 android:digits="1234567890."/>
+         android:layout_marginLeft="36dp" 
+         android:layout_marginTop="25dp"
+         android:layout_toRightOf="@+id/numberPicker_Rep"/>
+
+     
 
 </RelativeLayout>

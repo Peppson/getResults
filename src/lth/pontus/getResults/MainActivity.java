@@ -272,6 +272,9 @@ public class MainActivity extends FragmentActivity implements
 	public static class Fragment0 extends Fragment {
 
 		public static final String ARG_SECTION_NUMBER = "section_number";
+		private String exerciseName;
+		private long startRowId;
+		
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -333,6 +336,8 @@ public class MainActivity extends FragmentActivity implements
 					AlertDialog alertDialog = new AlertDialog.Builder(
 							getActivity()).create();
 					alertDialog.setTitle(textView.getText().toString());
+					
+					exerciseName = textView.getText().toString();
 
 					// Manipulate and inflate my alertdialog_input view into the
 					// dialog
@@ -340,15 +345,22 @@ public class MainActivity extends FragmentActivity implements
 					inflater.inflate(R.layout.exercise_item_layout, null);
 					View alertView = (View) inflater.inflate(
 							R.layout.alertdialog_input, null);
-					EditText editSet = (EditText) alertView
-							.findViewById(R.id.EditTexDialog_set);
-					EditText editRep = (EditText) alertView
-							.findViewById(R.id.EditTexDialog_rep);
-					EditText editWeight = (EditText) alertView
-							.findViewById(R.id.EditTextDialog_weight);
-					editSet.setText(textViewSet.getText().toString());
-					editRep.setText(textViewRep.getText().toString());
-					editWeight.setText(textViewWeight.getText().toString());
+					NumberPicker editSet = (NumberPicker) alertView
+							.findViewById(R.id.numberPicker_Set);
+					editSet.setMaxValue(20);
+					editSet.setMinValue(0);
+					NumberPicker editRep = (NumberPicker) alertView
+							.findViewById(R.id.numberPicker_Rep);
+					editRep.setMaxValue(100);
+					editRep.setMinValue(0);
+					NumberPicker editWeight = (NumberPicker) alertView
+							.findViewById(R.id.numberPicker_weight);
+					editWeight.setMaxValue(300);
+					editWeight.setMinValue(0);
+					
+					editSet.setValue(Integer.parseInt(textViewSet.getText().toString()));
+					editRep.setValue(Integer.parseInt(textViewRep.getText().toString()));
+					editWeight.setValue(Integer.parseInt(textViewWeight.getText().toString()));
 					alertDialog.setView(alertView);
 
 					alertDialog.setButton2("Delete",
@@ -368,24 +380,39 @@ public class MainActivity extends FragmentActivity implements
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int which) {
-									EditText editset = (EditText) ((AlertDialog) dialog)
-											.findViewById(R.id.EditTexDialog_set);
-									EditText editrep = (EditText) ((AlertDialog) dialog)
-											.findViewById(R.id.EditTexDialog_rep);
-									EditText editweight = (EditText) ((AlertDialog) dialog)
-											.findViewById(R.id.EditTextDialog_weight);
+									NumberPicker editset = (NumberPicker) ((AlertDialog) dialog)
+											.findViewById(R.id.numberPicker_Set);
+									NumberPicker editrep = (NumberPicker) ((AlertDialog) dialog)
+											.findViewById(R.id.numberPicker_Rep);
+									NumberPicker editWeight = (NumberPicker) ((AlertDialog) dialog)
+											.findViewById(R.id.numberPicker_weight);
+									
+									
+									startRowId = Integer.parseInt(textViewID.getText().toString());
+									
+									MyDb.updateRowNoDate(
+											Integer.parseInt(textViewID.getText().toString()), 
+											textView.getText().toString(), 
+											editset.getValue(), 
+											editrep.getValue(), 
+											editWeight.getValue());
 
-									MyDb.updateRowNoDate(Integer
-											.parseInt(textViewID.getText()
-													.toString()), textView
-											.getText().toString(), Integer
-											.parseInt(editset.getText()
-													.toString()), Integer
-											.parseInt(editrep.getText()
-													.toString()), Integer
-											.parseInt(editweight.getText()
-													.toString()));
+									Cursor cursor = MyDb.getExerciseAboveId(Long.valueOf(startRowId), exerciseName);
+									
+									if(cursor.getCount() > 0){
+										cursor.move(0);
+										
+										MyDb.updateRowNoById(cursor.getInt(0), editset.getValue(), editrep.getValue(), editWeight.getValue());
+										
+										//Toast.makeText(getActivity(), String.valueOf(cursor.getInt(0)), 3).show();
+									}
+									
+									
+									
+									
 
+									
+									
 									populateListViewByDate(DateHelper
 											.getCurrentDate());
 								}
