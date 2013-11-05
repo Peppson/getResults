@@ -67,7 +67,6 @@ import android.widget.Toast;
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
 
-	
 	AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 
 	ViewPager mViewPager;
@@ -77,7 +76,6 @@ public class MainActivity extends FragmentActivity implements
 	static DateProvider DateHelper;
 	private static Context mContext;
 	static View WeekdayRow;
-	
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -244,25 +242,17 @@ public class MainActivity extends FragmentActivity implements
 		public Drawable getPageICon(int position) {
 			switch (position) {
 			case 0:
-				return (Drawable) mContext
-						.getResources()
-						.getDrawable(
-								R.drawable.dumbell);
+				return (Drawable) mContext.getResources().getDrawable(
+						R.drawable.dumbell);
 			case 1:
-				return (Drawable) mContext
-						.getResources()
-						.getDrawable(
-								R.drawable.penn);
+				return (Drawable) mContext.getResources().getDrawable(
+						R.drawable.penn);
 			case 2:
-				return (Drawable) mContext
-						.getResources()
-						.getDrawable(
-								R.drawable.graph);
+				return (Drawable) mContext.getResources().getDrawable(
+						R.drawable.graph);
 			case 3:
-				return (Drawable) mContext
-						.getResources()
-						.getDrawable(
-								R.drawable.settings);
+				return (Drawable) mContext.getResources().getDrawable(
+						R.drawable.settings);
 			}
 			// return "Section " + (position + 1);
 			return null;
@@ -274,7 +264,6 @@ public class MainActivity extends FragmentActivity implements
 		public static final String ARG_SECTION_NUMBER = "section_number";
 		private String exerciseName;
 		private long startRowId;
-		
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -288,7 +277,8 @@ public class MainActivity extends FragmentActivity implements
 						@Override
 						public void onClick(View view) {
 							populateListViewByDate(DateHelper.getToday());
-							TextView thisday = (TextView) rootView.findViewById(R.id.textView_dateShower);
+							TextView thisday = (TextView) rootView
+									.findViewById(R.id.textView_dateShower);
 							thisday.setText(DateHelper.getToday());
 						}
 					});
@@ -299,9 +289,10 @@ public class MainActivity extends FragmentActivity implements
 						public void onClick(View view) {
 							String day = DateHelper.plusOneDay();
 							populateListViewByDate(day);
-							TextView thisday = (TextView) rootView.findViewById(R.id.textView_dateShower);
+							TextView thisday = (TextView) rootView
+									.findViewById(R.id.textView_dateShower);
 							thisday.setText(day);
-							//Toast.makeText(getActivity(), day, 3).show();
+							// Toast.makeText(getActivity(), day, 3).show();
 						}
 					});
 
@@ -311,7 +302,8 @@ public class MainActivity extends FragmentActivity implements
 						public void onClick(View view) {
 							String day = DateHelper.minusOneDay();
 							populateListViewByDate(day);
-							TextView thisday = (TextView) rootView.findViewById(R.id.textView_dateShower);
+							TextView thisday = (TextView) rootView
+									.findViewById(R.id.textView_dateShower);
 							thisday.setText(day);
 						}
 					});
@@ -336,7 +328,7 @@ public class MainActivity extends FragmentActivity implements
 					AlertDialog alertDialog = new AlertDialog.Builder(
 							getActivity()).create();
 					alertDialog.setTitle(textView.getText().toString());
-					
+
 					exerciseName = textView.getText().toString();
 
 					// Manipulate and inflate my alertdialog_input view into the
@@ -357,25 +349,27 @@ public class MainActivity extends FragmentActivity implements
 							.findViewById(R.id.numberPicker_weight);
 					editWeight.setMaxValue(300);
 					editWeight.setMinValue(0);
-					
-					editSet.setValue(Integer.parseInt(textViewSet.getText().toString()));
-					editRep.setValue(Integer.parseInt(textViewRep.getText().toString()));
-					editWeight.setValue(Integer.parseInt(textViewWeight.getText().toString()));
+
+					editSet.setValue(Integer.parseInt(textViewSet.getText()
+							.toString()));
+					editRep.setValue(Integer.parseInt(textViewRep.getText()
+							.toString()));
+					editWeight.setValue(Integer.parseInt(textViewWeight
+							.getText().toString()));
 					alertDialog.setView(alertView);
 
 					alertDialog.setButton2("Delete",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int which) {
-									
-									MyDb.deleteRow(Integer
-											.parseInt(textViewID.getText()
-													.toString()));
+
+									MyDb.deleteRow(Integer.parseInt(textViewID
+											.getText().toString()));
 									populateListViewByDate(DateHelper
 											.getCurrentDate());
 								}
 							});
-					
+
 					alertDialog.setButton("Save exercise",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
@@ -386,33 +380,34 @@ public class MainActivity extends FragmentActivity implements
 											.findViewById(R.id.numberPicker_Rep);
 									NumberPicker editWeight = (NumberPicker) ((AlertDialog) dialog)
 											.findViewById(R.id.numberPicker_weight);
-									
-									
-									startRowId = Integer.parseInt(textViewID.getText().toString());
-									
-									MyDb.updateRowNoDate(
-											Integer.parseInt(textViewID.getText().toString()), 
-											textView.getText().toString(), 
-											editset.getValue(), 
-											editrep.getValue(), 
+
+									startRowId = Integer.parseInt(textViewID
+											.getText().toString());
+
+									MyDb.updateRowNoDate(Integer
+											.parseInt(textViewID.getText()
+													.toString()), textView
+											.getText().toString(), editset
+											.getValue(), editrep.getValue(),
 											editWeight.getValue());
 
-									Cursor cursor = MyDb.getExerciseAboveId(Long.valueOf(startRowId), exerciseName);
-									
-									if(cursor.getCount() > 0){
-										cursor.move(0);
-										
-										MyDb.updateRowNoById(cursor.getInt(0), editset.getValue(), editrep.getValue(), editWeight.getValue());
-										
-										//Toast.makeText(getActivity(), String.valueOf(cursor.getInt(0)), 3).show();
-									}
-									
-									
-									
-									
+									Cursor cursor = MyDb.getExerciseAboveId(
+											Long.valueOf(startRowId),
+											exerciseName);
 
-									
-									
+									if (cursor.getCount() > 0) {
+										cursor.move(0);
+
+										MyDb.updateRowNoById(cursor.getInt(0),
+												editset.getValue(),
+												editrep.getValue(),
+												editWeight.getValue());
+
+										// Toast.makeText(getActivity(),
+										// String.valueOf(cursor.getInt(0)),
+										// 3).show();
+									}
+
 									populateListViewByDate(DateHelper
 											.getCurrentDate());
 								}
@@ -444,8 +439,8 @@ public class MainActivity extends FragmentActivity implements
 			// Create adapter to many columns of the DB onto element in the UI
 			SimpleCursorAdapter myCursorAdapter = new SimpleCursorAdapter(
 					this.getActivity(), R.layout.exercise_item_layout, // Row
-																		// layout
-																		// template
+					// layout
+					// template
 					cursor, // Cursor
 					fromFieldNames, // Db column names
 					toViewIDs); // View IDs to put information in
@@ -474,8 +469,8 @@ public class MainActivity extends FragmentActivity implements
 			// Create adapter to many columns of the DB onto element in the UI
 			SimpleCursorAdapter myCursorAdapter = new SimpleCursorAdapter(
 					this.getActivity(), R.layout.exercise_item_layout, // Row
-																		// layout
-																		// template
+					// layout
+					// template
 					cursor, // Cursor
 					fromFieldNames, // Db column names
 					toViewIDs); // View IDs to put information in
@@ -525,8 +520,7 @@ public class MainActivity extends FragmentActivity implements
 							WeekdayRow = arg1;
 							Object o = listview1.getItemAtPosition(position);
 							String str = (String) o;// As you are using Default
-													// String Adapter
-							
+							// String Adapter
 
 							Intent intent = new Intent(getActivity(),
 									CheckboxActivity.class);
@@ -568,7 +562,6 @@ public class MainActivity extends FragmentActivity implements
 								}
 							}
 
-							
 						}
 					});
 
@@ -627,18 +620,22 @@ public class MainActivity extends FragmentActivity implements
 													.findViewById(R.id.numberPicker_period);
 											int weeks = numberpicker.getValue();
 											DateHelper.setWeeks(weeks);
-											
+
 											ArrayList<ArrayList<Exercise>> weeklist = new ArrayList<ArrayList<Exercise>>();
 											ArrayList<String> dates = DateHelper
 													.getRangeOfDates();
 											DateTimeFormatter fmt = DateTimeFormat
 													.forPattern("YYYY-MM-dd");
-											DateTime dt = fmt.parseDateTime(dates.get(0));
-											String dayindex = dt.dayOfWeek().getAsString();
-											int daycorrection = Integer.parseInt(dayindex) - 1;
+											DateTime dt = fmt
+													.parseDateTime(dates.get(0));
+											String dayindex = dt.dayOfWeek()
+													.getAsString();
+											int daycorrection = Integer
+													.parseInt(dayindex) - 1;
 
 											for (int i = 0; i <= 6; i++) {
-												weeklist.add(exercisel.getExercises(i));
+												weeklist.add(exercisel
+														.getExercises(i));
 											}
 
 											for (int i = 0; i <= dates.size() - 1; i++) {
@@ -647,11 +644,14 @@ public class MainActivity extends FragmentActivity implements
 												ArrayList<Exercise> current = weeklist
 														.get(index);
 												String tempdate = dates.get(i);
-												for (int j = 0; j <= current.size() - 1; j++) {
-													if (current.get(j).isSelected()) {
-														MyDb.insertRow(
-																current.get(j).getName(), 3, 8,
-																0, tempdate);
+												for (int j = 0; j <= current
+														.size() - 1; j++) {
+													if (current.get(j)
+															.isSelected()) {
+														MyDb.insertRow(current
+																.get(j)
+																.getName(), 3,
+																8, 0, tempdate);
 													}
 												}
 											}
@@ -664,8 +664,6 @@ public class MainActivity extends FragmentActivity implements
 							// displayRecordSet(cursor);
 						}
 					});
-			
-			
 
 			return rootView;
 		}
@@ -690,21 +688,18 @@ public class MainActivity extends FragmentActivity implements
 			final View rootView = inflater.inflate(R.layout.fragment_overview,
 					container, false);
 			Bundle args = getArguments();
-			
-			
-			
 
-			rootView.findViewById(R.id.button_startGraphview).setOnClickListener(
-					new View.OnClickListener() {
+			rootView.findViewById(R.id.button_startGraphview)
+					.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View view) {
 							Intent intent = new Intent(getActivity(),
 									PlotActivity.class);
 							getActivity().startActivity(intent);
-							
+
 						}
 					});
-			
+
 			rootView.findViewById(R.id.button_showInfo).setOnClickListener(
 					new View.OnClickListener() {
 						@Override
@@ -712,53 +707,59 @@ public class MainActivity extends FragmentActivity implements
 							Intent intent = new Intent(getActivity(),
 									InfoActivity.class);
 							getActivity().startActivity(intent);
-							
+
 						}
 					});
-			
-			Spinner spinner = (Spinner) rootView.findViewById(R.id.exercise_spinner_plot);
-			// Create an ArrayAdapter using the string array and a default spinner layout
-			ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-			        R.array.exercise_array, android.R.layout.simple_spinner_item);
+
+			Spinner spinner = (Spinner) rootView
+					.findViewById(R.id.exercise_spinner_plot);
+			// Create an ArrayAdapter using the string array and a default
+			// spinner layout
+			ArrayAdapter<CharSequence> adapter = ArrayAdapter
+					.createFromResource(getActivity(), R.array.exercise_array,
+							android.R.layout.simple_spinner_item);
 			// Specify the layout to use when the list of choices appears
 			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			// Apply the adapter to the spinner
 			spinner.setAdapter(adapter);
-			
+
 			spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-			    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-			        String exercise = (String) parent.getItemAtPosition(pos);
-			        TextView setEx = (TextView) rootView.findViewById(R.id.textView_dynamic_exercise);
-			        setEx.setText(exercise);
-			        
-			    }
-			    public void onNothingSelected(AdapterView<?> parent) {
-			    }
+				public void onItemSelected(AdapterView<?> parent, View view,
+						int pos, long id) {
+					String exercise = (String) parent.getItemAtPosition(pos);
+					TextView setEx = (TextView) rootView
+							.findViewById(R.id.textView_dynamic_exercise);
+					setEx.setText(exercise);
+
+				}
+
+				public void onNothingSelected(AdapterView<?> parent) {
+				}
 			});
-			
-			Spinner spinner2 = (Spinner) rootView.findViewById(R.id.exercise_spinner_plot2);
-			// Create an ArrayAdapter using the string array and a default spinner layout
-			ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
-			        R.array.exercise_array, android.R.layout.simple_spinner_item);
+
+			Spinner spinner2 = (Spinner) rootView
+					.findViewById(R.id.exercise_spinner_plot2);
+			// Create an ArrayAdapter using the string array and a default
+			// spinner layout
+			ArrayAdapter<CharSequence> adapter2 = ArrayAdapter
+					.createFromResource(getActivity(), R.array.exercise_array,
+							android.R.layout.simple_spinner_item);
 			// Specify the layout to use when the list of choices appears
 			adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			// Apply the adapter to the spinner
 			spinner2.setAdapter(adapter2);
-			
+
 			spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-			    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-			        String exercise = (String) parent.getItemAtPosition(pos);
-			        
-			        
-			    }
-			    public void onNothingSelected(AdapterView<?> parent) {
-			    }
+				public void onItemSelected(AdapterView<?> parent, View view,
+						int pos, long id) {
+					String exercise = (String) parent.getItemAtPosition(pos);
+
+				}
+
+				public void onNothingSelected(AdapterView<?> parent) {
+				}
 			});
-			
-			
-			
-			
-			
+
 			return rootView;
 		}
 	}

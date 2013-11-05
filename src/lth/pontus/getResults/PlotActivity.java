@@ -31,48 +31,48 @@ public class PlotActivity extends Activity {
 		setContentView(R.layout.graphview_layout);
 		ArrayList<Integer> a = new ArrayList<Integer>();
 		String squat = "Squat";
-		//Cursor cursor = db.rawQuery("SELECT * FROM people WHERE lastname = ?; ", new String[] {"John Kenedy"});
+		// Cursor cursor =
+		// db.rawQuery("SELECT * FROM people WHERE lastname = ?; ", new String[]
+		// {"John Kenedy"});
 		Cursor cursor = MainActivity.MyDb.getRowByExercise(squat);
-		for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+		for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 			a.add(cursor.getInt(4));
-			
-		}
-		/**if(cursor.getCount()==0){
-			AlertDialog.Builder builder1 = new AlertDialog.Builder(getApplicationContext());
-            builder1.setMessage("There are no exercise for choosen period");
-            builder1.setCancelable(true);
-            builder1.setPositiveButton("OK",
-                    new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();
-                    finish();
-                }
-            });
-           
 
-            AlertDialog alert11 = builder1.create();
-            alert11.show();
-		}**/
-		
-		int num = a.size();  
-		GraphViewData[] data = new GraphViewData[a.size()];  
+		}
+		/**
+		 * if(cursor.getCount()==0){ AlertDialog.Builder builder1 = new
+		 * AlertDialog.Builder(getApplicationContext());
+		 * builder1.setMessage("There are no exercise for choosen period");
+		 * builder1.setCancelable(true); builder1.setPositiveButton("OK", new
+		 * DialogInterface.OnClickListener() { public void
+		 * onClick(DialogInterface dialog, int id) { dialog.cancel(); finish();
+		 * } });
+		 * 
+		 * 
+		 * AlertDialog alert11 = builder1.create(); alert11.show(); }
+		 **/
+
+		int num = a.size();
+		GraphViewData[] data = new GraphViewData[a.size()];
 		int nbr = 0;
 		int i = 0;
-		while(i<=(num-1)){
-			nbr = a.get(i); 
-		   data[i] = new GraphViewData(i, nbr);
-		   i++;
+		while (i <= (num - 1)) {
+			nbr = a.get(i);
+			data[i] = new GraphViewData(i, nbr);
+			i++;
 		}
 
-		GraphViewSeriesStyle style1 = new GraphViewSeriesStyle(Color.rgb(0, 100, 0),3);
-		GraphViewSeries seriesSin = new GraphViewSeries("Squat", style1, data); 
-		
-		data = new GraphViewData[2];  
+		GraphViewSeriesStyle style1 = new GraphViewSeriesStyle(Color.rgb(0,
+				100, 0), 3);
+		GraphViewSeries seriesSin = new GraphViewSeries("Squat", style1, data);
+
+		data = new GraphViewData[2];
 		int nbr1 = a.get(0);
-		   data[0] = new GraphViewData(0, nbr1);
-		   data[1] = new GraphViewData(a.size()-1, 100);
-		  
-		GraphViewSeriesStyle style2 = new GraphViewSeriesStyle(Color.rgb(100, 149, 237),3);
+		data[0] = new GraphViewData(0, nbr1);
+		data[1] = new GraphViewData(a.size() - 1, 100);
+
+		GraphViewSeriesStyle style2 = new GraphViewSeriesStyle(Color.rgb(100,
+				149, 237), 3);
 		GraphViewSeries seriesCos = new GraphViewSeries("Goal", style2, data);
 
 		GraphView graphView = new LineGraphView(this // context
@@ -86,10 +86,10 @@ public class PlotActivity extends Activity {
 		// graphView.setScrollable(true);
 		// optional - activate scaling / zooming
 		graphView.setScalable(true);
-		
+
 		LinearLayout layout = (LinearLayout) findViewById(R.id.mygraph4);
 		layout.addView(graphView);
-		
+
 		findViewById(R.id.button_plot_graph).setOnClickListener(
 				new View.OnClickListener() {
 					@Override
@@ -98,6 +98,5 @@ public class PlotActivity extends Activity {
 					}
 				});
 	}
-
 
 }

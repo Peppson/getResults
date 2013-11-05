@@ -17,17 +17,15 @@ public class InfoActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setTitle("Squats");
 		setContentView(R.layout.activity_info);
-		
+
 		findViewById(R.id.button_closeInfo).setOnClickListener(
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
 						finish();
-						
+
 					}
 				});
 	}
-
-
 
 }
